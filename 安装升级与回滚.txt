@@ -1,87 +1,40 @@
-公会炉石 1.2.2 · 10 人批量更新、服务器与平台指南
-© 2026 Mart，艾泽拉斯人类大法师
-核查日期：2026-11-05。免费，MIT 许可。
+公会炉石：安装、更新和回滚
 
-一、直接结论
-10 人分发先用固定发布地址和完整小 ZIP 即可，不必租服务器，不必让成员互相开放端口。
-公报、登记和回执通过游戏提供的插件消息接口传输。更新 Lua 文件是游戏外的文件替换，由成员手动或插件管理器完成；本插件没有 HTTP 下载器、磁盘覆盖权限、远程代码执行和静默升级能力。
-“推送补丁”可分为：发布者上传新版 → 管理器定期检查并下载 → 成员退出游戏、确认更新 → 重启核对版本。不是作者直接远程控制 10 台电脑，也不要求 10 人同时在线。
+下载：https://github.com/EclipseCybertitan/AzerothHearth/releases
+当前版本：1.2.3。目标：国服“无限”，Interface 16001。
+目前界面是中文。提供英文说明不代表其他地区或游戏分支已经兼容。
 
-二、最容易落地的 10 人流程
-1. 每版生成新文件名，例如 AzerothHearth-1.2.2.zip，并保存 SHA-256、更新说明和上一版。不要在原文件名下悄悄换内容。
-2. 最初先让 1–2 名成员在各自目标客户端核对加载、收发、撤稿和 UI；再分给其余成员。离线回归完成不等于这一步完成。本次尚未做实机试装。
-3. 固定一个公会现有的可信文件渠道，发布一个版本目录；提供安装 ZIP、校验文件和中文说明。不要分发你的 WTF 或成员存档。
-4. 成员完全退出游戏，备份旧插件及本角色存档，将旧插件完整移出 AddOns 后放入新版，避免混合文件。更新只替换 AzerothHearth，不动其他插件。
-5. 启动后 /ah diagnose 核对本机版本。1.2.0 的 /ah versions 可请求其他当前公会成员报告版本，再点刷新显示。
-6. 版本回应只表示对方插件自报版本，不是文件校验、账号身份认证或全员升级验收。离线、旧版、关闭同步和丢包都可能无回应；不能把未回应当作未安装。
-7. 记录 10 人各自的角色、系统、安装版本、验证结果；保持逐人确认。不要用公报回执代替升级确认。
+首次安装
+1. 下载 Assets 中的 AzerothHearth-1.2.3-forever.zip 和同名 .sha256。不要下载 Source code，那只是这个指南仓库的快照。
+2. 完全退出游戏。已有旧版时，分别备份 AzerothHearth 插件文件夹和本角色 SavedVariables。
+3. 核对 SHA-256，把旧插件目录移到 AddOns 之外，再把新 ZIP 内的 AzerothHearth 整个放入所选客户端的 Interface/AddOns。别多套一层文件夹，也别覆盖其他插件。
+4. 启动后用 /ah diagnose 检查版本。先请 1–2 人核验加载、登记收发、公报和撤稿，再给其余成员使用。
 
-三、希望日后少发文件：GitHub Release + WowUp
-WowUp 官方说明支持通过 GitHub 仓库地址安装作者发布的插件 ZIP，并支持用户开启自动更新。关键区别：普通 ZIP 链接仅安装一次，管理器无法从这个链接判断后续发行，不能据此期待自动更新。
+用 WowUp 更新
+Get Addons → Install from URL → 粘贴 https://github.com/EclipseCybertitan/AzerothHearth 。选择自己的 Forever / 无限客户端；识别不出来就手动安装，不要强行选别的游戏分支。
+需要自动更新时，在本插件菜单开启 Auto Update。管理器需要运行、网络需要能访问发布源；不是作者直接向你的电脑推送。普通 ZIP URL 只安装一次，不订阅后续版本。
+更新前退出游戏并备份。/ah versions 是成员自报版本查询，不是文件校验，也不能把无回应当成没安装。
 
-发布者步骤：
-1. 固定仓库为 https://github.com/EclipseCybertitan/AzerothHearth，仅安装包、必要发行元数据和中文指南从这里发布。配置地址不代表已上线，须检查 Releases 与匿名下载结果。
-2. 为每版保留 Git 标签，例如 v1.2.2；创建对应 GitHub Release，写清功能、升级与回滚要求、实机未验收项。
-3. 上传 dist/publish-1.2.2/AzerothHearth-1.2.2-forever.zip 及其 SHA-256。该包和普通安装包字节完全相同，只为管理器提供可识别的文件名；不要把维护者源码 ZIP 作为插件安装资产混入选择。
-4. WowUp 当前文档提到 Forever 分支使用 -forever 文件名后缀，并支持 Addon_Forever.toc 等分支标识；本项目用单一 AzerothHearth.toc、Interface 16001，并附 release.json 指定 forever 分支。文件名不是目标客户端兼容证明，须由成员核对管理器能否识别自己的国服分支。
+手动更新与国内网络备用
+打不开 GitHub 时，由能下载的维护者通过公会已有的可信文件渠道转交原 ZIP、校验文件和说明。保持原字节，不解压重打包。成员按首次安装步骤完整替换。
+不需要租服务器、开放入站端口或做路由器端口映射。下载需要正常 HTTPS 出站访问；各人的网络、代理和组织策略仍可能拦截。不要关闭防火墙或 TLS 校验，也不要共享作者令牌。
 
-成员步骤：
-1. 从 WowUp 官方来源下载对应系统版本，选择实际无限客户端；不选其他正式服或怀旧分支。
-2. Get Addons → Install from URL，粘贴仓库地址。检查安装预览中的目录和版本。
-3. 完成实机检查并接受后续完整更新后，可对本插件启用 Auto Update；官方当前说明是每小时检查，不是即时推送，也不能假定管理器关闭时仍会执行。
-4. 更新前退出游戏，更新后重新启动。按版本核对与公会验收确认完成。新版新增 Lua/TOC 文件时，完整重启更稳妥。
-若目标分支识别失败，暂用普通 ZIP 手动更新；不要改错客户端路径强行安装。
+回滚
+先在 WowUp 关闭 Auto Update 并开启 Ignore，否则可能马上又被升级。退出游戏，另存当前插件和角色存档，再完整安装保留的 1.2.0 或 1.1.0。
+1.2.x 与 1.1.0 都使用 schema 2。仅回退插件通常不必同时恢复旧存档；1.1.0 没有新版回执和版本查询。回退 1.0.0 必须恢复配套 schema 1 备份。旧存档可能让撤稿、登记和提醒状态倒退，不要改 schema 数字。
+恢复升级时，先确认来源和版本，再取消 Ignore、手动检查更新。
 
-四、服务器与防火墙
-公报同步：不需要自建服务端、数据库、WebSocket 或成员间直连；使用已经登录的游戏连接。但客户端／服务器仍可限制插件消息，防火墙放行不能解除游戏侧限制。
-文件分发：使用 GitHub Release 或现有下载平台时，无需在你的电脑运行服务器。成员只向下载站点发起正常 HTTPS 请求；通常使用出站 TCP 443，不需要给成员电脑开放入站端口，也不需要路由器端口转发。
-“能不能过防火墙”不能统一保证。系统防火墙、公司网络策略、代理、DNS、TLS 检查和到发布源的网络可达性是不同问题。GitHub／下载 CDN 的可达性须在每名成员实际网络验证；本次没有替 10 人验证。
-排查顺序：浏览器能否打开正式发布页 → 能否下载同一 ZIP → 管理器是否使用正确来源和游戏分支 → 如被组织策略阻断，由管理员按下载源放行必要出站。不要关闭整个防火墙、关闭 TLS 校验或绕过安全软件。
-本项目离线验收页只监听 127.0.0.1。8765／8766／8767 等本机演示端口不是更新服务器，不能发给成员当远程下载地址，也不用对公网开放。
-若将来需要自托管，静态 HTTPS 文件站或对象存储足够保存 ZIP 和版本说明；主机可以是 Linux 或 Windows，和玩家系统无关。HTTPS 站点本身不会让 WowUp 自动订阅任意 ZIP，仍需受支持的发布源或另行实现、验证游戏外更新器。当前没有部署自托管或私有更新器。
+校验命令
+Windows PowerShell：Get-FileHash -Algorithm SHA256 -LiteralPath '.\AzerothHearth-1.2.3-forever.zip'
+macOS Terminal：shasum -a 256 AzerothHearth-1.2.3-forever.zip
+哈希用来检查文件是否一致，不单独证明发布者身份。
 
-五、Windows 还是 macOS
-游戏插件部分是 Lua 和 TOC，同一安装 ZIP 不含 EXE、DLL、平台专用二进制，安装位置都是所选客户端的 Interface/AddOns/AzerothHearth。实际目标客户端 API、字体、权限和输入法仍须分别实测，不能宣称 Mac 或 Win 已通过实机验收。
-Windows：通过战网“在资源管理器中显示”找到所选游戏分支；用 PowerShell Get-FileHash -Algorithm SHA256 -LiteralPath 'AzerothHearth-1.2.2.zip' 核对哈希。
-macOS：通过战网或 Finder 找到实际游戏分支。不要猜测一定是某个 _retail_ 路径；在终端切换到下载目录后可用 shasum -a 256 AzerothHearth-1.2.2.zip 核对。解压并完整替换本插件文件夹，勿覆盖整个 AddOns。
-插件管理器是游戏外应用，须下载各自系统版本。WowUp 官方提供 Windows、macOS（区分 Apple Silicon / Intel）及 Linux 的安装说明；这不证明国服无限客户端在每个系统都受支持。本机只完成 Windows 上的离线 Lua 与浏览器验证，未在 Mac 运行。
-源码维护：Python 工具原则上不绑定游戏安装路径；本次只验证 Windows。tools/Dev.ps1 和 Start-Demo.cmd 是 Windows 便利入口，Mac 维护者需自行准备 Python/Lua 依赖再运行 Python 脚本，不能声称已实测。
+常用入口
+/ah 打开面板；/ah rp 登记职业 RP；/ah library 阅读全文、归档和更正；/ah delivery 查看客户端回执；/ah versions 查询版本；/ah diagnose 查看诊断。
+同步由各成员自行开启，读者需信任公报作者。公报在插件内阅读全文，聊天只由作者手动提醒。回执不是已读；“已收到”和“离线”可以同时成立。
 
-六、版本兼容和回滚
-1.2.0 保持 schema 2 和 AHCOMM2。1.1.0 能接收正文和撤稿，但不会回应新增送达核对与版本询问，因此新送达表会显示待同步／确认，版本表显示未知。这不是认定旧版未收到；旧式回执也不解锁 1.2.0 手动提醒，需要至少一名新版成员匹配确认。
-从 1.1.0 升级保留同步开关、信任、归档、更正、撤稿和提醒记录；从 1.0.0 升级仍须重新开启同步。回执只属于当前会话，重载后需重新同步核对，不写成“已读”。
-回退 1.1.0 可读取 schema 2 的既有业务资料，但没有新增回执界面；仍应保留升级前后两份备份。回退 1.0.0 必须使用升级前配套 schema 1 备份。恢复旧存档可能使撤稿、提醒状态倒退。
-完整包只有几十 KB，当前采用完整替换，避免差分补丁因 10 人基线不同造成文件混杂。未来可增加签名发布、灰度渠道和安装后完整性反馈；目前 SHA-256 只能检查文件变化，不能单独认证发布者。
+验收范围
+已做离线 Lua、安装包和 10 个模拟目录的安装／升级／回滚检查。未打开、读取或复制游戏；真实 WowUp 安装、Win/Mac 游戏运行和各成员网络还没有验收。别把离线结果填成全员实机通过。
+记录 10 人的角色代号、系统、版本、备份日期、哈希和实机结果；记录留在公会自己的私有位置。选举规则仍由公会决定。
 
-七、公开依据（2026-11-05 核对）
-WowUp 安装来源、GitHub 发布包及普通 ZIP 更新限制：
-https://wowup.io/guide/get-addons/overview
-WowUp 自动更新设置与检查周期：
-https://wowup.io/guide/my-addons/addons
-WowUp 作者发布与 Forever 分支识别：
-https://wowup.io/guide/wowup/hub
-WowUp Windows / macOS 安装说明：
-https://wowup.io/guide/wowup/overview
-Windows 出站规则说明：
-https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/configure
-macOS 防火墙说明：
-https://support.apple.com/en-hk/guide/security/seca0e83763f/web
-
-1.2.2 固定发布源与自动发布检查已配置。是否公开成功以 Releases 页面和独立验收报告为准；本指南本身不构成发布证据。没有替成员批量安装、修改防火墙或远程控制电脑；选举规则仍由用户设计。
-
-
-1.2.2 固定来源、国内备用和回滚补充
-固定仓库：https://github.com/EclipseCybertitan/AzerothHearth
-发行目录：https://github.com/EclipseCybertitan/AzerothHearth/releases
-在 WowUp 的 Install from URL 粘贴仓库地址，选择实际 Forever / 无限客户端。1.2.2 的公开 Assets 安装包名为 AzerothHearth-1.2.2-forever.zip，与本地 AzerothHearth-1.2.2.zip 字节一致。Source code 不是成员安装包。公开下载是否可用，以实际发行页与验收记录为准。
-1.2.2 与 1.2.0 的业务、schema 2 和 AHCOMM2 相同，修复发行配置及安装指南旧标题。1.1.0 可收全文和撤稿，但不支持新回执、版本查询；未知回应不是未安装。
-首次安装和升级：完全退出游戏，备份旧插件和本角色 SavedVariables，核对 ZIP 哈希；完整移走旧 AzerothHearth 目录后装入新目录，不动其他插件和整个 WTF。重新启动后 /ah diagnose 核对版本，/ah versions 只辅助查询他人自报版本。
-国内访问 GitHub 不通：由能访问的维护者通过公会既有可信文件渠道转交原始 -forever.zip、同名 .sha256 与指南。成员可完全离线核对并手动替换，不必登录 GitHub，不分享作者令牌，不关闭防火墙和 TLS 校验。转交的 ZIP 不解压重打包。哈希只能验证文件一致，仍需确认来源。
-手动回滚：先在 WowUp 关闭 Auto Update 并启用 Ignore，再退出游戏、备份现状，完整安装保留的 1.2.0 或 1.1.0。仅装旧文件而不暂停管理器，可能很快又被升级。schema 2 版本互读不要求无故恢复旧存档；如确需恢复旧存档，注意撤稿与已提醒状态可能倒退。回退 1.0.0 必须恢复配套 schema 1 备份。
-Windows 哈希：Get-FileHash -Algorithm SHA256 -LiteralPath '.\AzerothHearth-1.2.2-forever.zip'
-macOS 哈希：shasum -a 256 AzerothHearth-1.2.2-forever.zip
-回滚后核对版本和业务，保持 Ignore，直到负责人决定恢复升级；需要恢复更新时重新确认仓库来源，再取消 Ignore 并手动检查更新。不要把旧 ZIP 重新发布为最新 Release。
-10 人验收分别记录角色代号、系统、版本、备份、哈希、WowUp 来源和实机结果。先 1–2 人，再扩大；已收到公报、已回应版本都不能填成安装或已读验收。
-本轮不打开、读取或复制游戏；真实 WowUp 桌面安装、国服分支识别、成员网络与 Win/Mac 实机仍须各自确认。维护者详见源码 docs/发布维护指南.txt。
-
-本次公开范围确定：GitHub 仓库只公开安装包和中文指南，不公开独立开发源码、完整 Git 历史、测试或构建工具。仓库自动显示的 Source code 仅是指南快照，不能安装。补丁在本地验收后，通过 Release 上传原始安装 ZIP、校验文件与 release.json；公开仓库没有云端源码构建流水线。包内 Lua 是插件运行必需文件。首发作者说明见《开发者与时间线.txt》，RP 称号不占用职业领袖选举席位。
+© 2026 Mart，艾泽拉斯人类大法师。免费，MIT 许可。

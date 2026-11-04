@@ -1,26 +1,22 @@
-公会炉石 1.2.2 · 仅安装包与中文指南的发布流程
-© 2026 Mart，艾泽拉斯人类大法师
-2026-11-05
+发布维护
 
-公开范围：安装包、发行说明、必要的 release.json / SHA-256 及中文指南。完整 Git 历史、独立源码包、构建与测试工具只留本机。安装包中包含运行所需 Lua，这不等于公开独立开发仓库。
-固定渠道：https://github.com/EclipseCybertitan/AzerothHearth
-发行目录：https://github.com/EclipseCybertitan/AzerothHearth/releases
-本地保留 1.1.0、1.2.0、1.2.1 和 1.2.2 检查点；首次公开发布 1.1.0、1.2.0、1.2.2。1.2.1 是本地分发准备检查点。
+公开仓库只放安装包、必要的发行元数据和说明。不要上传开发分支、完整 Git 历史或独立源码包。
 
-后续补丁：
-1. 本地改动，更新 TOC、Bootstrap.lua 与 distribution.json 的版本，补充中文发行说明。
-2. 运行离线 Lua、发行包和十目录分发测试；生成新的完整 ZIP 和哈希，旧版不覆盖。
-3. 在 GitHub 的 Draft a new release 中填写新版本标签，例如 v1.2.3。目标为公开指南仓库 main；这里的标签标识分发记录，不是开发源码提交。
-4. 发布说明写清新功能、数据兼容、回滚版和实机未验证项。只上传一个 AzerothHearth-版本-forever.zip、同名 .sha256 和 release.json，必要时附中文指南。不能上传源码 ZIP、手动资料合集或 Git bundle 作为管理器安装资产。
-5. 附件完全上传后发布，验证未登录用户可下载且 SHA-256 一致。公开页有版本但附件不可下载，不算分发验收完成。
-6. 先请 1–2 人实机验证，再扩大到 10 人。成员在 WowUp 检查更新；是否自动更新由成员自行选择。
-7. WowUp 当前按 Release 发布时间检查最近五版，不只看语义版本号或 Latest 标记。先发布旧版，最后发布新版；不要在新版之后重新发布历史包。
-8. 回滚成员先关闭 Auto Update、启用 Ignore；再退出游戏、备份并完整安装旧版，防止管理器立即升回。
+更新步骤：
+1. 本地改版本、打包并检查。保留旧 ZIP、哈希和本地源码标签。
+2. GitHub → Releases → Draft a new release。新建版本标签，标题用版本号即可，说明写清改了什么。
+3. 上传一个 -forever.zip、同名 .sha256 和 release.json。传完再发布，并以未登录身份下载核对。
+4. 先由 1–2 人实机检查，再扩至 10 人。成员用 WowUp 检查更新；自动更新由成员自行开启。
+5. 不覆盖已发布的同名安装包。旧版保留，回滚前提醒成员关闭 Auto Update 并开启 Ignore。
 
-国内网络备用：将原始安装 ZIP、哈希和指南通过公会既有可信文件渠道转交，保持原字节。不要关闭防火墙或 TLS 校验，不共享维护者令牌。该途径是手动更新，不声称已建立国内自动镜像。
+WowUp 会按发布时间选取近期 Release，不要在新版之后重新发布旧版。本仓库没有云端源码构建。GitHub 不通时，转交原 ZIP、哈希和指南，保持文件原字节。
+十人安装记录留在公会私有位置，不上传账号资料。版本自报和公报回执不是安装验收，也不是已读证明。
 
-10 人验收记录由负责人私下保存，不上传公开仓库。每人记录角色代号、系统、版本、备份、哈希、来源关联、diagnose 与实机收发。先保留十行“待验收”；版本自报和公报回执均不能填成安装验收或已读。
+Publishing
 
-本公开仓库没有源码构建 Actions。本地 .github 方案属于先前准备材料，不发布到此渠道。不要向这个仅分发仓库推送本地开发分支或完整标签历史。
-GitHub 连接器授权、网页登录和本机 Git 登录各自独立。当前可用网页完成发布，无需把密码或令牌发给助手。未来可在已授权的本机使用仅上传 Release 附件的工具，不执行源码 bootstrap。
-选举由负责人设计；公会与人物示例名称仍集中管理；未打开、读取或复制游戏。Win/Mac 实机、真实 WowUp 安装以及每位成员网络待验证。
+Keep this repository limited to installers, release metadata and documentation. Do not upload development history or standalone source packages.
+Build and test locally. Create a new Release with a new version tag, one -forever.zip installer, its .sha256 file and release.json. Publish only after all assets finish uploading; then verify anonymous downloads and hashes.
+Keep old versions. Do not replace a published file under the same name or publish an old version after a newer one. Pilot game checks with one or two members before all ten update. This repository does not build source in the cloud.
+For a rollback, disable Auto Update and enable Ignore first. When GitHub is unreachable, distribute the original ZIP and checksum through a trusted guild channel.
+
+© 2026 Mart，艾泽拉斯人类大法师 / Mart, Human Archmage of Azeroth. MIT.

@@ -1,0 +1,56 @@
+Azeroth Hearth 1.2.3 — installation and updates
+
+Releases: https://github.com/EclipseCybertitan/AzerothHearth/releases
+WowUp source: https://github.com/EclipseCybertitan/AzerothHearth
+Target: China-region WoW: Forever (无限), Interface 16001. The addon UI is currently in Chinese. English documentation does not establish compatibility with other regions or game branches.
+
+FIRST INSTALL / MANUAL UPDATE
+1. Download AzerothHearth-1.2.3-forever.zip and its .sha256 file from Release Assets. GitHub's “Source code” downloads contain this guide repository, not the addon.
+2. Exit the game completely. Back up the existing AzerothHearth folder and this character's SavedVariables before upgrading.
+3. Check SHA-256. Move the old addon folder outside AddOns, then extract the new AzerothHearth folder into the selected client's Interface/AddOns. The final path must be Interface/AddOns/AzerothHearth/AzerothHearth.toc. Do not merge old and new files or replace other addons.
+4. Start the game and run /ah diagnose. Have one or two members check loading, registration, full bulletins and withdrawal before expanding to all ten members.
+
+WOWUP
+Get Addons → Install from URL → paste the repository URL above. Select the actual Forever client. If your branch is not recognized, use manual installation; do not force another client type.
+Auto Update is optional. The manager must be running and able to reach the source. A direct ZIP URL is a one-time installation, not an update subscription. Exit the game and back up before an update.
+/ah versions reports versions claimed by responding clients. No reply does not prove that a member has not installed the addon.
+
+ROLLBACK
+Turn off Auto Update and enable Ignore in WowUp first. Exit the game, keep a fresh backup, then install the complete 1.2.0 or 1.1.0 folder. Otherwise the manager may upgrade it again.
+1.2.x and 1.1.0 use schema 2. A code rollback does not normally require restoring an older save. Version 1.1.0 lacks the newer delivery receipts and version queries. Rolling back to 1.0.0 requires its matching schema 1 backup. Old saves may undo withdrawals or notice history; never edit the schema number.
+
+WHEN GITHUB IS UNREACHABLE
+A guild maintainer with access can pass on the original ZIP, checksum and instructions through an existing trusted file channel. Verify the checksum and replace the full addon folder manually. Do not repack it or share account tokens.
+No inbound firewall port or router forwarding is required. Downloads need ordinary HTTPS access. Network policies may still block GitHub or its download hosts; do not disable the firewall or TLS verification.
+
+CHECKSUMS
+Windows PowerShell: Get-FileHash -Algorithm SHA256 -LiteralPath '.\AzerothHearth-1.2.3-forever.zip'
+macOS Terminal: shasum -a 256 AzerothHearth-1.2.3-forever.zip
+A matching checksum checks file consistency, not publisher identity on its own.
+
+USAGE AND LIMITS
+/ah: main panel; /ah rp: RP registration; /ah library: full bulletins; /ah delivery: client receipts; /ah versions: version query; /ah diagnose: diagnostics.
+Each member must enable sync; readers must trust a bulletin's author. Full text stays in the addon. A guild-chat notice requires the author's manual action. Delivery receipts are not read receipts. “Received” and “offline” are independent states.
+Offline Lua, ZIP and ten-folder install/upgrade/rollback tests have passed. Actual WowUp installation, Windows/macOS game operation and each member's network remain unverified. The game was not opened, read or copied. Election rules remain with the guild.
+
+PUBLICATION
+This public repository contains installers, release metadata and documentation only. Development history and standalone source packages stay local. Tags identify distribution records; they do not represent the private development commits.
+
+About the designer
+
+I'm Mart. I've played a mage for years.
+
+I've followed Azeroth's main timeline and spent time in another branch on Huhuran, where my character is also named MART. Now I'm starting again in WoW: Forever (无限).
+
+If this “archmage” looks like a fresh character, blame a little time magic. The memories survived; the levels, gold and gear did not. I can keep the title, but I still have to level up.
+
+I made Azeroth Hearth to keep guild roleplay registrations, bulletins and shared layouts in one place. Members should be able to check what changed without digging through guild chat.
+
+Time magic hasn't fixed the Lua errors yet. I'm working on those.
+
+— Mart, Human Archmage of Azeroth
+
+The designer plays on the China-region servers.
+
+The archmage title is part of my character's RP story. It does not fill an elected class-leader seat or grant guild permissions. Election rules are up to the guild.
+© 2026 Mart，艾泽拉斯人类大法师. Free software, MIT license.

@@ -1,0 +1,18 @@
+About the designer
+
+I'm Mart. I've played a mage for years.
+
+I've followed Azeroth's main timeline and spent time in another branch on Huhuran, where my character is also named MART. Now I'm starting again in WoW: Forever (无限).
+
+If this “archmage” looks like a fresh character, blame a little time magic. The memories survived; the levels, gold and gear did not. I can keep the title, but I still have to level up.
+
+I made Azeroth Hearth to keep guild roleplay registrations, bulletins and shared layouts in one place. Members should be able to check what changed without digging through guild chat.
+
+Time magic hasn't fixed the Lua errors yet. I'm working on those.
+
+— Mart, Human Archmage of Azeroth
+
+The designer plays on the China-region servers.
+
+The archmage title is part of my character's RP story. It does not fill an elected class-leader seat or grant guild permissions. Election rules are up to the guild.
+© 2026 Mart，艾泽拉斯人类大法师. Free software, MIT license.

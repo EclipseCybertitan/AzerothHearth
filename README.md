@@ -1,46 +1,39 @@
-# 公会炉石 · Azeroth Hearth
+# Azeroth Hearth / 公会炉石
 
-© 2026 **Mart，艾泽拉斯人类大法师**。免费，MIT 许可。目标国服《魔兽世界：无限》Interface **16001**；实机兼容性未验收。
+公会职业登记、公报和界面制式放在一起。全文在插件里看，聊天提醒由作者手动发送。
 
-本仓库只公开 **安装包和中文指南**。开发源码仓库、完整 Git 历史、独立源码包、测试与构建工具不在此公开。安装 ZIP 中的 Lua 是插件运行必需文件。
+Guild RP registrations, bulletins and shared layouts in one addon. Read the full bulletin in the addon; chat notices are sent manually by the author.
 
-## 来自另一条时间之流
+**[下载 / Download 1.2.3](https://github.com/EclipseCybertitan/AzerothHearth/releases/tag/v1.2.3)** · [所有版本 / All releases](https://github.com/EclipseCybertitan/AzerothHearth/releases)
 
-> 我曾沿着艾泽拉斯的主时间之流一路前行，也在哈霍兰的另一条时间分支，以 MART 之名继续旅程。如今，轮到“无限”。时光回溯留下了大法师的记忆，等级与行囊还得重新积累。
+## 安装与更新
 
-作者大法师称号属于 RP 设定，不占用职业领袖选举席位。完整来信见文末链接和安装包。
+下载 Release Assets 中的 `-forever.zip`，退出游戏、备份旧版后，把 `AzerothHearth` 文件夹放进正确客户端的 `Interface/AddOns`。不要下载 **Source code**，那是指南仓库快照，不能安装。
 
-## 下载和订阅更新
+WowUp → **Get Addons → Install from URL**，填写：
 
-- [当前 1.2.2 首发版本](https://github.com/EclipseCybertitan/AzerothHearth/releases/tag/v1.2.2)
-- [发行与下载目录](https://github.com/EclipseCybertitan/AzerothHearth/releases)
-- [安装、升级、回滚和国内网络备用指南](安装升级与回滚.txt)
-- WowUp → Get Addons → Install from URL，粘贴：`https://github.com/EclipseCybertitan/AzerothHearth`
-- 下载 Release **Assets** 中的 `AzerothHearth-版本-forever.zip` 和同名 `.sha256`。不要下载 GitHub 自动显示的 **Source code**；在这个仅分发仓库中，它只是指南快照，不是插件安装包。
-- 各版附件以发行页实际列出的内容为准；旧版保留供回滚。
+`https://github.com/EclipseCybertitan/AzerothHearth`
 
-## 成员安装
+回滚前关闭 **Auto Update** 并开启 **Ignore**。GitHub 不通时，可通过公会可信渠道转交原 ZIP 和校验文件，手动更新。
 
-完全退出游戏，备份旧插件与本角色 SavedVariables。核对 ZIP 的 SHA-256，将旧 `AzerothHearth` 目录完整移到 AddOns 之外，再把新 ZIP 内的同名文件夹放入正确客户端的 `Interface/AddOns`。最终路径为 `Interface/AddOns/AzerothHearth/AzerothHearth.toc`，不能多套一层。
+[中文安装与回滚说明](安装升级与回滚.txt) · [发布维护](发布维护指南.txt) · [开发者的话](开发者与时间线.txt)
 
-首次由 1–2 名成员完成实机核验，再扩大到 10 人。安装后 `/ah diagnose` 查看本机版本，`/ah versions` 仅辅助核对其他成员自报版本，不能代替安装或文件完整性验收。
+## Install and update
 
-## 升级与回滚
+Download the `-forever.zip` asset. Exit the game, back up, and place its `AzerothHearth` folder in the correct client's `Interface/AddOns`. **Source code** downloads are guide snapshots, not installable addons.
 
-WowUp 可检查此仓库的 Release。成员自行选择是否开启 Auto Update；自动检查不是即时推送，管理器关闭或网络不可达时不能保证更新。回滚前必须关闭 Auto Update 并勾选 Ignore，再退出游戏、备份、完整安装旧版。不要删除全部 WTF 或覆盖其他插件。
+In WowUp, use **Get Addons → Install from URL** with the repository URL above. Turn off **Auto Update** and enable **Ignore** before a rollback. If GitHub is unreachable, use an unchanged ZIP and checksum passed through a trusted guild file channel.
 
-1.2.2 与 1.2.0 保持 schema 2、AHCOMM2；1.1.0 可以收全文和撤稿，但不支持新回执与版本查询。回执不是已读。回退更早版本需使用配套存档，不能修改 schema 数字。
+[English installation guide](INSTALL.en.txt) · [About the designer](ABOUT.en.txt)
 
-国内无法访问 GitHub 时，由维护者通过公会既有可信文件渠道转交原 ZIP、校验文件和指南，成员手动更新。不要解压重打包或索取作者令牌；不需要开放电脑入站端口、路由器端口映射或关闭防火墙。
+## 兼容范围 / Compatibility
 
-## 发布边界
+目标是国服“无限” Interface 16001。目前界面是中文。离线测试已完成，真实 WowUp 安装、Windows/macOS 游戏运行和成员网络仍待验证。职业领袖怎么选，由公会决定。
 
-此公开仓库不部署源码构建工作流。维护者在本地构建并验证完整安装包，再发布 Release；WowUp 从这里检查更新。Release 标签标识分发记录，不是独立开发源码提交。仅选择普通 ZIP URL 安装不能订阅后续更新。
+Target: China-region WoW: Forever (无限), Interface 16001. The UI is currently in Chinese. Offline tests have passed; actual WowUp installation, Windows/macOS game operation and member networks remain unverified. Election rules are up to the guild.
 
-本项目未打开、读取或复制游戏；已完成的本地模拟、ZIP 验证不等于在 WowUp 桌面程序安装成功或 Win/Mac 游戏实机通过。职业领袖与选举规则仍待负责人设计，公会和人物示例均为占位。
+The designer plays on the China-region servers.
 
-依据：[WowUp URL 安装说明](https://wowup.io/guide/get-addons/overview)、[更新与 Ignore 说明](https://wowup.io/guide/my-addons/addons)。
+这里只公开安装包和说明，完整开发历史及独立源码包留在本机。This repository publishes installers and documentation only; development history and standalone source packages remain local. The Lua files inside an installer are required to run the addon.
 
-
-[来自另一条时间之流：开发者来信](开发者与时间线.txt)
-
+© 2026 **Mart，艾泽拉斯人类大法师** / **Mart, Human Archmage of Azeroth**. 免费 / Free. MIT license.
