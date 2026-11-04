@@ -4,8 +4,15 @@
 
 本仓库只公开 **安装包和中文指南**。开发源码仓库、完整 Git 历史、独立源码包、测试与构建工具不在此公开。安装 ZIP 中的 Lua 是插件运行必需文件。
 
+## 来自另一条时间之流
+
+> 我曾沿着艾泽拉斯的主时间之流一路前行，也在哈霍兰的另一条时间分支，以 MART 之名继续旅程。如今，轮到“无限”。时光回溯留下了大法师的记忆，等级与行囊还得重新积累。
+
+作者大法师称号属于 RP 设定，不占用职业领袖选举席位。完整来信见文末链接和安装包。
+
 ## 下载和订阅更新
 
+- [当前 1.2.2 首发版本](https://github.com/EclipseCybertitan/AzerothHearth/releases/tag/v1.2.2)
 - [发行与下载目录](https://github.com/EclipseCybertitan/AzerothHearth/releases)
 - [安装、升级、回滚和国内网络备用指南](安装升级与回滚.txt)
 - WowUp → Get Addons → Install from URL，粘贴：`https://github.com/EclipseCybertitan/AzerothHearth`
@@ -22,7 +29,7 @@
 
 WowUp 可检查此仓库的 Release。成员自行选择是否开启 Auto Update；自动检查不是即时推送，管理器关闭或网络不可达时不能保证更新。回滚前必须关闭 Auto Update 并勾选 Ignore，再退出游戏、备份、完整安装旧版。不要删除全部 WTF 或覆盖其他插件。
 
-1.2.1 与 1.2.0 保持 schema 2、AHCOMM2；1.1.0 可以收全文和撤稿，但不支持新回执与版本查询。回执不是已读。回退更早版本需使用配套存档，不能修改 schema 数字。
+1.2.2 与 1.2.0 保持 schema 2、AHCOMM2；1.1.0 可以收全文和撤稿，但不支持新回执与版本查询。回执不是已读。回退更早版本需使用配套存档，不能修改 schema 数字。
 
 国内无法访问 GitHub 时，由维护者通过公会既有可信文件渠道转交原 ZIP、校验文件和指南，成员手动更新。不要解压重打包或索取作者令牌；不需要开放电脑入站端口、路由器端口映射或关闭防火墙。
 
